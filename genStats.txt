@@ -1,0 +1,40 @@
+most RingDec_2018 with stages - 16 
+'09c939b129', '302e0e50d8', '3078f60024', '365dcae189', '3d0efb728a', '4200150e83', '49424801fe', '495e717573', '505c867923', '51e99800d1', '7505cc33a4', '87875f3613', 'd0f2a79bb8', 'd7b06b1991', 'ed0805f15f', 'fc93c66c4c'
+
+most RingDecOpp_2018 with stages - 13
+'0140019b21', '4084d8a53e', '62df9fdd5b', 'b0f632c5f5', 'c235a2a269', 'ca8be703e4', 'd0f6284045', 'd64878d84f', 'e66ac11a08', 'ef24e7954e', 'f525ee41a5', 'f8eefd6eb2', 'fe2c7e2fb7'
+
+most RingDec_2018 NO stages - 3 
+'5c37f25fbd', '7ae6f7a1c0', 'b0db804a22'
+
+most JonRing - 3
+'13d5bfa3a4', 'd8a8934596', 'fa68042c97'
+
+most RingDecOpp_2018 No stages - 5
+'8d0b29f797', 'ee0c616086', 'd92d756e99', '764d71ad2c', '3ff7b1bced'
+
+most JonRingOpp - 4
+'36f2aba294', '647c69fa25', '8383c744e7', 'f4068d80d8'
+
+
+least RingDecOpp_2018 with stages - 2
+'13dc37e587', '3b873dec05'
+
+lease RingDec_2018 NO stages - 1
+'769c354902'
+
+least JonRing - 1
+'e85d4eae40'
+
+least JonRingOpp - 1
+'476e68f37a'
+
+
+avg time for stage 6/7
+SELECT avg(time) FROM circlesdb.3colorsJonRingOpp where ID in ('476e68f37a') and howManyCircles1=3;
+
+first trial (~) of stage 3 where there are no stages
+SELECT min(numberOfTrail) FROM circlesdb.2colorsJonRing where ID in ('fa68042c97') and stringColorDom not in ('white', 'red') and StringColor2 not in ('white', 'red') and numberOfTrail!=0 group by ID;
+
+count workerID and ID duplicates
+SELECT workerID, ID, count(*) c from (select distinct workerID, ID FROM circlesdb.2colorsRingDec_2018) as iq group by workerID  having c >1;
